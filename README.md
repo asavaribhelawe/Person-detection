@@ -32,8 +32,22 @@ After downloading the DeepSORT Zip file from the drive, unzip it by running the 
 use the following command:
 
 ```bash
-python detect_dual_tracking.py --weights 'yolov9-c.pt' --source 'your video.mp4' --device cpu
+python detect_dual_tracking.py --weights 'yolov9-c.pt' --source 'your video.mp4' --device cpu --view img
 ```
 ## Object Counting
 
 Output files will be created in the working-dir/runs/detect/obj-tracking directory with the original filename.
+
+## MySQL 
+create a schema named "objecttracking" and in that create a table by using this query:
+```bash
+CREATE TABLE objecttracking.object_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image_path VARCHAR(255) NOT NULL,
+    last_seen DATETIME NOT NULL,
+    reappear_time DATETIME,
+    missing_duration FLOAT NOT NULL DEFAULT 0,
+    object_id INT NOT NULL,
+    UNIQUE KEY object_id_unique (object_id)
+);
+```
