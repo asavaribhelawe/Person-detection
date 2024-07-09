@@ -32,7 +32,7 @@ After downloading the DeepSORT Zip file from the drive, unzip it by running the 
 use the following command:
 
 ```bash
-python detect_dual.py --weights 'yolov9-c.pt' --source 'your video.mp4' --device cpu
+python detect_dual_tracking.py --weights 'yolov9-c.pt' --source 'your video.mp4' --device cpu
 ```
 ## Object Counting
 
